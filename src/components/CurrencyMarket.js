@@ -40,22 +40,21 @@ class CurrencyMarket extends Component {
         }); 
     }
 
-    componentDidMount() {
-        fetch('https://www.cbr-xml-daily.ru/daily_json.js') //https://openexchangerates.org/api/latest.json?app_id=a513d99c2ff5487e96d002643694f97b
-            .then(res => res.json())
-            .then(result => {
-                this.setState({
-                    data: result,
-                })
-            },
-            error => {
-                console.log(error);
-                this.setState({
-                    data: true,
-                    isError: true
-                });
-            }
-            );
+    async componentDidMount() {
+        try {
+            const response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
+            const result = await response.json();
+            this.setState({
+                data: result
+            });
+        } catch(error) {
+            console.log(true);
+            this.setState({
+                data: true,
+                isError: true
+            });
+        }
+
     }
 
     render() {

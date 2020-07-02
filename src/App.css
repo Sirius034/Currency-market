@@ -1,5 +1,6 @@
 .App {
-    background: #466368;
+    min-height: 100vh;
+    max-height: 100rem;
     background: linear-gradient(to top, #10503a, #323a41) no-repeat ;
     padding: 25px 0 10px;
 }
